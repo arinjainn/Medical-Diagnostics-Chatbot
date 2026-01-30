@@ -1,4 +1,4 @@
-# MS-Hackthon-MEDBOT
+# MEDBOT
 
 Built a chatbot capable of diagnosing common medical conditions based on user symptom inputs. The application utilizes machine learning and LLM-based models trained on medical data to provide relevant suggestions and recommendations for further action.
 
