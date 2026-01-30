@@ -19,9 +19,6 @@ During signup, please ensure the following fields are filled correctly:
 - Contact Number
 - Emergency Contact Number
 
-## Tutorial
-
-https://youtu.be/tI1Z8tIVIuE?si=vq16jC1R-Owrsq9R
 
 ---
 
