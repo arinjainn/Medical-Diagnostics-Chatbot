@@ -58,7 +58,7 @@ Ensure the following are installed on your system:
 ### 1. Clone the Repository
 
 ```sh
-git clone <your-repo-link>
+git clone https://github.com/arinjainn/Medical-Diagnostics-Chatbot
 cd Medical-Diagnostics-Chatbot
 
 2. Install Dependencies
