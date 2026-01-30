@@ -1,4 +1,4 @@
-# MEDBOT
+# Medical-Diagnostics-Chatbot
 
 Built a chatbot capable of diagnosing common medical conditions based on user symptom inputs. The application utilizes machine learning and LLM-based models trained on medical data to provide relevant suggestions and recommendations for further action.
 
@@ -59,7 +59,7 @@ Ensure the following are installed on your system:
 
 ```sh
 git clone <your-repo-link>
-cd MERN-AI-ChatBot-final
+cd Medical-Diagnostics-Chatbot
 
 2. Install Dependencies
 Backend
