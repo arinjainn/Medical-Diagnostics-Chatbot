@@ -4,6 +4,19 @@ import { hash, compare } from "bcrypt";   //used to encrpt the passwords and sto
 import { createToken } from "../utils/token-manager.js";
 import { COOKIE_NAME } from "../utils/constants.js";
 
+const getCookieOptions = (expires?: Date) => {
+  const isProduction = process.env.NODE_ENV === "production";
+  return {
+    path: "/",
+    domain: isProduction ? undefined : "localhost",
+    expires,
+    httpOnly: true,
+    signed: true,
+    sameSite: isProduction ? "none" as const : "lax" as const,
+    secure: isProduction,
+  };
+};
+
 export const getAllUsers = async (
   req: Request,
   res: Response,
@@ -15,7 +28,7 @@ export const getAllUsers = async (
     return res.status(200).json({ message: "OK", users });
   } catch (error) {
     console.log(error);
-    return res.status(200).json({ message: "ERROR", cause: error.message });
+    return res.status(200).json({ message: "ERROR", cause: (error as any).message });
   }
 };
 
@@ -34,30 +47,19 @@ export const userSignup = async (
     await user.save();
 
     // create token and store cookie
-    res.clearCookie(COOKIE_NAME, {
-      httpOnly: true,
-      domain: "localhost",
-      signed: true,
-      path: "/",
-    });
+    res.clearCookie(COOKIE_NAME, getCookieOptions());
 
     const token = createToken(user._id.toString(), user.email, "7d");
     const expires = new Date();
     expires.setDate(expires.getDate() + 7);
-    res.cookie(COOKIE_NAME, token, {
-      path: "/",
-      domain: "localhost",
-      expires,
-      httpOnly: true,
-      signed: true,
-    });
+    res.cookie(COOKIE_NAME, token, getCookieOptions(expires));
 
     return res
       .status(201)
       .json({ message: "OK", name: user.name, email: user.email });
   } catch (error) {
     console.log(error);
-    return res.status(200).json({ message: "ERROR", cause: error.message });
+    return res.status(200).json({ message: "ERROR", cause: (error as any).message });
   }
 };
 
@@ -79,31 +81,19 @@ export const userLogin = async (
     }
 
     // create token and store cookie
-
-    res.clearCookie(COOKIE_NAME, {
-      httpOnly: true,
-      domain: "localhost",
-      signed: true,
-      path: "/",
-    });
+    res.clearCookie(COOKIE_NAME, getCookieOptions());
 
     const token = createToken(user._id.toString(), user.email, "7d");
     const expires = new Date();
     expires.setDate(expires.getDate() + 7);
-    res.cookie(COOKIE_NAME, token, {
-      path: "/",
-      domain: "localhost",
-      expires,
-      httpOnly: true,
-      signed: true,
-    });
+    res.cookie(COOKIE_NAME, token, getCookieOptions(expires));
 
     return res
       .status(200)
       .json({ message: "OK", name: user.name, email: user.email });
   } catch (error) {
     console.log(error);
-    return res.status(200).json({ message: "ERROR", cause: error.message });
+    return res.status(200).json({ message: "ERROR", cause: (error as any).message });
   }
 };
 
@@ -126,7 +116,7 @@ export const verifyUser = async (
       .json({ message: "OK", name: user.name, email: user.email });
   } catch (error) {
     console.log(error);
-    return res.status(200).json({ message: "ERROR", cause: error.message });
+    return res.status(200).json({ message: "ERROR", cause: (error as any).message });
   }
 };
 
@@ -145,12 +135,7 @@ export const userLogout = async (
       return res.status(401).send("Permissions didn't match");
     }
 
-    res.clearCookie(COOKIE_NAME, {
-      httpOnly: true,
-      domain: "localhost",
-      signed: true,
-      path: "/",
-    });
+    res.clearCookie(COOKIE_NAME, getCookieOptions());
 
     return res
       .status(200)
