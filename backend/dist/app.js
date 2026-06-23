@@ -14,6 +14,9 @@ const allowedOrigins = [
     "http://localhost:5174",
     "http://localhost:5175",
 ];
+if (process.env.FRONTEND_URL) {
+    allowedOrigins.push(process.env.FRONTEND_URL);
+}
 app.use(cors({
     origin: (origin, callback) => {
         if (!origin || allowedOrigins.includes(origin) || /^http:\/\/localhost:\d+$/.test(origin)) {
