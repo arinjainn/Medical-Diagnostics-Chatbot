@@ -4,79 +4,6 @@ import { hash, compare } from "bcrypt";   //used to encrpt the passwords and sto
 import { createToken } from "../utils/token-manager.js";
 import { COOKIE_NAME } from "../utils/constants.js";
 
-// export const addReminder = async (req, res, next) => {
-//   try {
-//     const { title, datetime, description } = req.body;
-//     const user = await User.findById(res.locals.jwtData.id);
-//     if (!user) {
-//       return res.status(401).send("User not registered OR Token malfunctioned");
-//     }
-    
-//     const reminder = { title, datetime, description };
-//     user.reminders.push(reminder);
-//     await user.save();
-
-//     return res.status(201).json({ message: "OK", reminder });
-//   } catch (error) {
-//     console.log(error);
-//     return res.status(500).json({ message: "ERROR", cause: error.message });
-//   }
-// };
-
-// export const getReminders = async (req, res, next) => {
-//   try {
-//     const user = await User.findById(res.locals.jwtData.id);
-//     if (!user) {
-//       return res.status(401).send("User not registered OR Token malfunctioned");
-//     }
-    
-//     console.log("hello");
-//     return res.status(200).json({ message: "OK", reminders: user.remainders });
-//   } catch (error) {
-//     console.log(error);
-//     return res.status(500).json({ message: "ERROR", cause: error.message });
-//   }
-// };
-
-// export const deleteReminder = async (req, res, next) => {
-//   try {
-//     const { reminderId } = req.params;
-//     const user = await User.findById(res.locals.jwtData.id);
-//     if (!user) {
-//       return res.status(401).send("User not registered OR Token malfunctioned");
-//     }
-//     // let newRemainders :  mongoose.Types.DocumentArray<{title: string, datetime: Date, description: string}> = [];
-//     // user.remainders.filter(
-//     //   (reminder) => {
-//     //     if(reminder._id.toString() !== reminderId){
-//     //       newRemainders.push({
-//     //         title: reminder.title,
-//     //         datetime: reminder.datetime,
-//     //         description: reminder.description
-//     //       });
-//     //     }
-//     //   }
-//     // );
-    
-//     // let newRemainders = user.remainders.filter(
-//     //   (reminderSchema) => reminderSchema._id.toString() !== reminderId
-//     // );
-//     let newRemainders = user.reminders.filter(
-//       (reminder) => reminder._id.toString() !== reminderId
-//     );
-    
-//     //@ts-ignore
-//     user.remainders = newRemainders;
-//     // user.remainders = [];
-//     await user.save();
-
-//     return res.status(200).json({ message: "OK" });
-//   } catch (error) {
-//     console.log(error);
-//     return res.status(500).json({ message: "ERROR", cause: error.message });
-//   }
-// };
-
 export const getAllUsers = async (
   req: Request,
   res: Response,
@@ -230,8 +157,6 @@ export const userLogout = async (
       .json({ message: "OK", name: user.name, email: user.email });
   } catch (error) {
     console.log(error);
-    return res.status(200).json({ message: "ERROR", cause: error.message });
+    return res.status(200).json({ message: "ERROR", cause: (error as any).message });
   }
 };
-
-//hello
