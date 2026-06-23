@@ -2,6 +2,8 @@
 
 Built a chatbot capable of diagnosing common medical conditions based on user symptom inputs. The application utilizes machine learning and LLM-based models trained on medical data to provide relevant suggestions and recommendations for further action.
 
+[![Live Demo](https://img.shields.io/badge/Live-Demo-brightgreen)](https://medical-diagnostics-chatbot.vercel.app)
+
 ## Built By
 
 **Arin Jain**  
@@ -20,9 +22,6 @@ During signup, please ensure the following fields are filled correctly:
 - Emergency Contact Number
 
 ---
-# Medical-Diagnostics-Chatbot
-
-[![Live Demo](https://img.shields.io/badge/Live-Demo-brightgreen)](https://medical-diagnostics-chatbot.vercel.app)
 
 # MEDBOT-AI
 
