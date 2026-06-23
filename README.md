@@ -19,7 +19,6 @@ During signup, please ensure the following fields are filled correctly:
 - Contact Number
 - Emergency Contact Number
 
-
 ---
 
 # MEDBOT-AI
@@ -57,16 +56,18 @@ Ensure the following are installed on your system:
 ```sh
 git clone https://github.com/arinjainn/Medical-Diagnostics-Chatbot
 cd Medical-Diagnostics-Chatbot
+```
 
-2. Install Dependencies
-Backend
-sh
-Copy code
+### 2. Install Dependencies
+
+#### Backend
+```sh
 cd backend
 npm install
+```
 
-!!!below installations if facing any problem further-
-
+If facing any problem further, install below:
+```sh
 npm install @google/generative-ai
 npm install @langchain/google-genai
 npm install axios
@@ -86,15 +87,16 @@ npm install morgan
 npm install node-cron
 npm install openai
 npm install twilio
+```
 
-
-Frontend
-sh
-Copy code
+#### Frontend
+```sh
 cd ../frontend
 npm install
+```
 
-!!!below installations if facing any problem further
+If facing any problem further, install below:
+```sh
 npm install @emotion/react
 npm install @emotion/styled
 npm install @mui/icons-material
@@ -109,30 +111,34 @@ npm install react-markdown
 npm install react-router-dom
 npm install react-syntax-highlighter
 npm install react-type-animation
+```
 
-Running the Application
-1. Set Up Environment Variables
-Create a .env file in both the backend and frontend directories with the necessary environment variables. See Environment Variables for details.
+## Running the Application
 
-2. Start the Backend Server
-sh
-Copy code
+### 1. Set Up Environment Variables
+
+Create a `.env` file in both the backend and frontend directories with the necessary environment variables. See Environment Variables for details.
+
+### 2. Start the Backend Server
+```sh
 cd backend
 npm run dev
+```
 
-3. Start the Frontend Development Server
+### 3. Start the Frontend Development Server
+
 Open a new terminal and navigate to the frontend directory:
-sh
-Copy code
+```sh
 cd frontend
 npm run dev
-This will start the Vite development server, and you can access the frontend at http://localhost:3000.
+```
+This will start the Vite development server, and you can access the frontend at http://localhost:5173/ (or http://localhost:5174/).
 
-makefile
 ## Environment Variables
 
 Create a `.env` file in the root of your `backend` directory and add the following variables. Replace the placeholder values with your actual keys and credentials.
 
+```ini
 OPEN_AI_SECRET=your_open_ai_secret
 OPENAI_ORGANIZATION_ID=your_openai_organization_id
 MONGODB_URL=your_mongodb_url
@@ -144,35 +150,39 @@ GEMINI_CLIENT_EMAIL=your_gemini_client_email
 TWILIO_ACCOUNT_SID=your_twilio_account_sid
 TWILIO_AUTH_TOKEN=your_twilio_auth_token
 TWILIO_PHONE_NUMBER=your_twilio_phone_number
-
+```
 
 Replace `your_open_ai_secret`, `your_openai_organization_id`, `your_mongodb_url`, `your_jwt_secret`, `your_cookie_secret`, `your_gemini_api_key`, `your_gemini_client_email`, `your_twilio_account_sid`, `your_twilio_auth_token`, and `your_twilio_phone_number` with the actual values uploaded in the .env file code.
 
-Frontend
-Create a .env file in the frontend directory if needed. For this project, environment variables for the frontend are not explicitly required but may be added as needed for API endpoints or other configurations.
+### Frontend
 
-Usage
+Create a `.env` file in the frontend directory and add the following variable:
+```ini
+VITE_HERE_API_KEY=your_here_api_key
+```
+
+## Usage
+
 Once both servers are running, open your browser and navigate to http://localhost:5173/ to interact with the MEDBOT-AI application. You can signup with all details and then log in, chat with the bot, set medication reminders, and find nearby hospitals.
 
-Technologies Used
-Backend:
+## Technologies Used
 
-Node.js
-Express.js
-MongoDB
-TypeScript
-LANGCHAIN
-JWT (JSON Web Tokens) for authentication
-Twilio for SMS notifications
-GEMINI API(u can use any other too) for chatbot functionality
-HERE API for location and hospital data fetching
+### Backend:
 
-Frontend:
+- Node.js
+- Express.js
+- MongoDB
+- TypeScript
+- LANGCHAIN
+- JWT (JSON Web Tokens) for authentication
+- Twilio for SMS notifications
+- GEMINI API (u can use any other too) for chatbot functionality
+- HERE API for location and hospital data fetching
 
-React
-Vite
-Material-UI (MUI)
-React Router
-Axios for HTTP requests
-```
-# Medical-Diagnostics-Chatbot
+### Frontend:
+
+- React
+- Vite
+- Material-UI (MUI)
+- React Router
+- Axios for HTTP requests

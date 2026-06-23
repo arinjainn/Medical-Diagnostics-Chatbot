@@ -26,7 +26,7 @@ const NearbyHospitals = () => {
   useEffect(() => {
     if (location) {
       const fetchHospitals = async () => {
-        const apiKey = 'rruWPj059PWEoTLa5YI89kvg4ON1NjL2h8oLnLqalhw';
+        const apiKey = import.meta.env.VITE_HERE_API_KEY || '';
         const endpoint = `https://discover.search.hereapi.com/v1/discover?at=${location.lat},${location.long}&q=hospital&limit=5&apiKey=${apiKey}`;
         
         try {

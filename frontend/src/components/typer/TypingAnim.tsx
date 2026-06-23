@@ -5,7 +5,7 @@ const TypingAnim = () => {
     <TypeAnimation
       sequence={[
         // Same substring at the start will only be typed once, initially
-        "♥️ MS Hackathon 2024 ♥️",
+        "MS Hackathon 2024",
         1000,
         "Built Using LLMs 🤖",
         2000,

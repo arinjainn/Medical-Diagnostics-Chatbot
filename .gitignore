@@ -1,0 +1,18 @@
+# Dependencies
+node_modules/
+
+# Env files (contains sensitive keys)
+.env
+.env.local
+
+# OS files
+.DS_Store
+
+# Frontend build files
+frontend/dist/
+
+# Temp / Scratch files
+*scratch*
+*.log
+*test-gemini*
+backend/dist/src/

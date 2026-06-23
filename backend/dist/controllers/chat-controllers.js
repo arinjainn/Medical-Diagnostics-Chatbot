@@ -3,6 +3,7 @@
 // import { configureOpenAI } from "../config/openai-config.js";
 // // import { configureGeminiAPI } from "../config/openai-config.js";
 import User from "../models/User.js";
+import { HarmCategory, HarmBlockThreshold } from "@google/generative-ai";
 //newly added code
 import { ChatGoogleGenerativeAI } from "@langchain/google-genai";
 import { PromptTemplate } from "@langchain/core/prompts";
@@ -13,25 +14,25 @@ Assume you are a state-of-the-art medical diagnostics chat bot doing online pati
 {query}?`);
 const safetySettings = [
     {
-        category: "HARM_CATEGORY_HARASSMENT",
-        threshold: "BLOCK_NONE",
+        category: HarmCategory.HARM_CATEGORY_HARASSMENT,
+        threshold: HarmBlockThreshold.BLOCK_NONE,
     },
     {
-        category: "HARM_CATEGORY_HATE_SPEECH",
-        threshold: "BLOCK_NONE",
+        category: HarmCategory.HARM_CATEGORY_HATE_SPEECH,
+        threshold: HarmBlockThreshold.BLOCK_NONE,
     },
     {
-        category: "HARM_CATEGORY_SEXUALLY_EXPLICIT",
-        threshold: "BLOCK_NONE",
+        category: HarmCategory.HARM_CATEGORY_SEXUALLY_EXPLICIT,
+        threshold: HarmBlockThreshold.BLOCK_NONE,
     },
     {
-        category: "HARM_CATEGORY_DANGEROUS_CONTENT",
-        threshold: "BLOCK_NONE",
+        category: HarmCategory.HARM_CATEGORY_DANGEROUS_CONTENT,
+        threshold: HarmBlockThreshold.BLOCK_NONE,
     },
 ];
 const model = new ChatGoogleGenerativeAI({
-    apiKey: "AIzaSyDiIQ-KHiHvP27GDwl8PC9n6tPybHAP0RY",
-    model: "gemini-pro",
+    apiKey: process.env.GEMINI_API_KEY,
+    model: "gemini-2.5-flash",
     temperature: 0,
     maxOutputTokens: 2048,
     safetySettings: safetySettings,

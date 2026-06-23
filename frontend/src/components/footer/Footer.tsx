@@ -52,12 +52,12 @@ const Footer = () => {
             <Link
               style={{ color: "white" }}
               className="nav-link"
-              to={"https://github.com/chinnivamshi"}
+              to={"https://github.com/arinjainn"}
             >
-             'Vamshi' & 'Rishabh'
-          </Link>
+              Arin
+            </Link>
           </span>
-          💘
+
         </p>
       </div>
     </footer>
