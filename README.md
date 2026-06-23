@@ -20,6 +20,9 @@ During signup, please ensure the following fields are filled correctly:
 - Emergency Contact Number
 
 ---
+# Medical-Diagnostics-Chatbot
+
+[![Live Demo](https://img.shields.io/badge/Live-Demo-brightgreen)](https://medical-diagnostics-chatbot.vercel.app)
 
 # MEDBOT-AI
 
